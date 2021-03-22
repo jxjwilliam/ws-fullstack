@@ -1,0 +1,21 @@
+node_modules
+
+# testing
+coverage
+
+# production
+build
+
+# hidden folder
+.vscode
+.idea
+.drawio-chrome
+.history
+.ssl
+.cache
+.eslintcache
+.next
+.docz
+.storybook
+.DS_Store
+.husky

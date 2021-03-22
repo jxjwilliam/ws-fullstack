@@ -8,7 +8,8 @@
   "description": "ws-fullstack",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "echo test",
+    "test1": "echo \"Error: no test specified\" && exit 1",
     "prepare": "husky install"
   },
   "keywords": [],
@@ -19,6 +20,7 @@
     "@babel/core": "^7.13.10",
     "@babel/node": "^7.13.12",
     "@babel/preset-env": "^7.13.12",
+    "chai": "^4.3.4",
     "commitizen": "^4.2.3",
     "cross-env": "^7.0.3",
     "eslint": "^7.22.0",
@@ -34,9 +36,15 @@
     "husky": "^5.2.0",
     "lerna": "^3.22.1",
     "lint-staged": "^10.5.4",
+    "mocha": "^8.3.2",
     "nodemon": "^2.0.7",
     "prettier": "^2.2.1",
     "rimraf": "^3.0.2"
   },
-  "dependencies": {}
+  "dependencies": {
+    "dayjs": "^1.10.4",
+    "dotenv": "^8.2.0",
+    "faker": "^5.4.0",
+    "node-fetch": "^2.6.1"
+  }
 }

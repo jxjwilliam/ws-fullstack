@@ -1,0 +1,3 @@
+- Dokerfile
+- docker-compose.yml
+- nginx.conf

@@ -8,12 +8,15 @@
   "description": "ws-fullstack",
   "main": "index.js",
   "scripts": {
+    "diff": "lerna diff",
+    "clean": "lerna clean && rimraf dist",
     "test": "echo test",
     "test1": "echo \"Error: no test specified\" && exit 1",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "fix": "eslint --fix 'packages/**/src/**/*.js'"
   },
   "keywords": [],
-  "author": "",
+  "author": "William Jiang",
   "license": "MIT",
   "devDependencies": {
     "@babel/cli": "^7.13.10",
@@ -29,6 +32,8 @@
     "eslint-config-prettier": "^8.1.0",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-markdown": "^2.0.0",
+    "eslint-plugin-mocha": "^8.1.0",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-prettier": "^3.3.1",
     "eslint-plugin-react": "^7.22.0",

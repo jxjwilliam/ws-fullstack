@@ -8,6 +8,7 @@ import {
   Folder as FolderIcon,
 } from '@material-ui/icons'
 import { version } from '../../package.json'
+import { title } from '../config/constants.json'
 
 const useStyles = makeStyles({
   root: {
@@ -57,7 +58,7 @@ export default function ({ services = [], symbol, emoji }) {
         <Typography component="span" variant="subtitle1" color="textPrimary" align="center">
           Copyright ©
           <Link color="inherit" href="http://www.bestitconsulting.com/">
-            Best IT Consulting Ltd.
+            {title}
           </Link>
           {` Current Version ${version} in ${new Date().getFullYear()}. `}
         </Typography>

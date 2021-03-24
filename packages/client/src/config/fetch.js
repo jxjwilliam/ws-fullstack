@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { HEADERS, TOKEN } from './constants.json'
-import { Loading, NotFound, Error } from '../common'
+import { Loading, NotFound, Error } from '../containers'
 import { pageReload } from './utils'
 
 /**

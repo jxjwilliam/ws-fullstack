@@ -1,5 +1,5 @@
 import React from 'react'
 
 export default function () {
-  return <h1>Layout</h1>
+  return <h1>Logout</h1>
 }

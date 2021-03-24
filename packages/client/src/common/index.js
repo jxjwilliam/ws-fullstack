@@ -1,7 +1,0 @@
-export { default as Title } from './title'
-export { default as ProTip } from './ProTip'
-export { default as TabPanels } from './TabPanels'
-export { default as Error } from './Error'
-export { default as Loading } from './Loading'
-export { default as NotFound } from './NotFound'
-export { default as Toast } from './Toast'

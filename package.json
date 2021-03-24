@@ -14,8 +14,7 @@
     "dev": "concurrently \"yarn client\" \"yarn gateway\"",
     "diff": "lerna diff",
     "clean": "lerna clean && rimraf dist",
-    "test": "echo test",
-    "test1": "echo \"Error: no test specified\" && exit 1",
+    "test": "echo \"Error: no test specified\" && exit 1",
     "prepare": "husky install",
     "fix": "eslint --fix 'packages/**/src/**/*.js'"
   },

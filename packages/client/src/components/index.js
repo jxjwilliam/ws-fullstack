@@ -1,2 +1,7 @@
-export { default as Footer } from './footer'
+export { default as ProTip } from './ProTip'
+export { default as TabPanels } from './TabPanels'
+export { default as Toast } from './Toast'
 export { default as Header } from './header'
+export { default as Title } from './title'
+export { default as Footer } from './footer'
+export { default as Layout } from './layout'

@@ -8,12 +8,12 @@ const useStyles = makeStyles(theme => ({
     position: 'relative',
     height: '80vh',
   },
-  center: {
+  style1: {
     position: 'relative',
     top: '50%',
     transform: 'translateY(-50%)',
   },
-  center1: {
+  style2: {
     maxHeight: '100%',
     maxWidth: '100%',
     width: 'auto',
@@ -27,12 +27,12 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
-export default function () {
+export default function ({ style = 1 }) {
   const classes = useStyles()
-
+  const className = style === 1 ? classes.style1 : classes.style2
   return (
     <div className={classes.root}>
-      <CircularProgress color="secondary" className={classes.center} />
+      <CircularProgress color="secondary" className={className} />
     </div>
   )
 }

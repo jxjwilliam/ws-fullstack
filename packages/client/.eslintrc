@@ -2,16 +2,20 @@
   "env": {
     "jest/globals": true
   },
+  "extends": ["plugin:jest/recommended"],
+  "plugins": ["jest"],
   "rules": {
     "react/jsx-filename-extension": [1, { "extensions": [".js"] }],
-    "react/prop-types": "off",
-    "react/destructuring-assignment": "off",
-    "react/no-unescaped-entities": "off",
-    "react/jsx-one-expression-per-line": "off",
-    "react/display-name": "off",
-    "react/prefer-stateless-function": "off",
-    "react/jsx-props-no-spreading": "off",
-    "react/react-in-jsx-scope": "off",
+    "react/prop-types": 0,
+    "react/destructuring-assignment": 0,
+    "react/no-unescaped-entities": 0,
+    "react/jsx-one-expression-per-line": 0,
+    "react/jsx-fragments": 0,
+    "react/display-name": 0,
+    "react/prefer-stateless-function": 0,
+    "react/jsx-props-no-spreading": 0,
+    "react/react-in-jsx-scope": 0,
+    "jsx-a11y/label-has-associated-control": 0,
     "react/jsx-indent-props": ["error", 2]
   }
 }

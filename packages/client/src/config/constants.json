@@ -1,0 +1,67 @@
+{
+  "DEFAULT_HOME_PAGE": "/",
+  "DEFAULT_LOGIN_PAGE": "/signin",
+  "DIALOG_LOGIN_PAGE": "/login",
+  "REGISTER_PAGE": "/signup",
+  "SIGNOUT_PAGE": "/logout",
+  "HEADERS": {
+    "Content-type": "application/json",
+    "Accept": "application/json"
+  },
+  "TOKEN": "authToken",
+  "menus": [
+    {
+      "type": "Services",
+      "list": [
+        "风险管理",
+        "核心企业",
+        "供应商",
+        "客户信息",
+        "融资管理",
+        "凭证"
+      ]
+    },
+    {
+      "type": "Playground",
+      "list": [
+        "登录",
+        "切换用户登录",
+        "退出",
+        "注册"
+      ]
+    },
+    {
+      "type": "GraphQL & Gatsby",
+      "list": [
+        "登录",
+        "切换用户登录",
+        "退出",
+        "注册"
+      ]
+    },
+    {
+      "type": "Docs",
+      "list": [
+        "首页",
+        "404"
+      ]
+    },
+    {
+      "type": "Misc",
+      "list": [
+        "首页",
+        "404"
+      ]
+    }
+  ],
+  "emails": {
+    "admin": "admin@bestitconsulting.com",
+    "support": "support@bestitconsulting.com"
+  },
+  "contacts": {
+    "office": "1(236)-992-3846",
+    "business": "1(778)-881-2489"
+  },
+  "title": "Best IT Consulting",
+  "description": "Description"
+}

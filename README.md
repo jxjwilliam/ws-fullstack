@@ -42,3 +42,15 @@ etc: drawio, general usage/config: docker, travis, netlify,
 ## Auth
 
 ## Nginx, Docker
+
+## Q / A
+
+### 1. jest
+
+Issue: `jest` test cases work in command-line, but not in VSCode
+Resolve: By default, VS Code auto start `jest`. To disable it:
+
+- Preferences -> settings
+- search `jest`
+- uncheck `Automatically start jest for this project`
+- run `yarn test` manually in command-line

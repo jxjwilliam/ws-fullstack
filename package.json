@@ -14,7 +14,7 @@
     "dev": "concurrently \"yarn client\" \"yarn gateway\"",
     "diff": "lerna diff",
     "clean": "lerna clean && rimraf dist",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test1": "echo \"Error: no test specified\" && exit 1",
     "prepare": "husky install",
     "fix": "eslint --fix 'packages/**/src/**/*.js'"
   },
@@ -35,6 +35,7 @@
     "eslint-config-node": "^4.1.0",
     "eslint-config-prettier": "^8.1.0",
     "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jest": "^24.3.2",
     "eslint-plugin-jsx-a11y": "^6.4.1",
     "eslint-plugin-markdown": "^2.0.0",
     "eslint-plugin-mocha": "^8.1.0",

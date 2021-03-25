@@ -7,8 +7,8 @@ import {
   LocationOn as LocationOnIcon,
   Folder as FolderIcon,
 } from '@material-ui/icons'
-import { version } from '../../package.json'
-import { title } from '../config/constants.json'
+import { version } from '../../../package.json'
+import { title } from '../../config/constants.json'
 
 const useStyles = makeStyles({
   root: {

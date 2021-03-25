@@ -1,36 +1,41 @@
-import { HomeWork as AppHome, BusinessCenter, VerifiedUser } from '@material-ui/icons'
-import { Route } from 'react-router-dom'
-import { Link } from '@material-ui/core'
+import React from 'react'
+// import { HomeWork as AppHome, BusinessCenter, VerifiedUser } from '@material-ui/icons'
+import IconButton from '@material-ui/core/IconButton'
+import Icon from '@material-ui/core/Icon'
+import { Switch, Route, Link } from 'react-router-dom'
 import { Home, Service } from '../01-home'
 import { Login } from '../02-auth'
-import { NotFound } from '../containers'
+import { C404 } from '../containers'
+
+const iconAry = ['AppHome', 'BusinessCenter', 'VerifiedUser'].map(icon => (
+  <IconButton key={icon}>
+    <Icon>{icon}</Icon>
+  </IconButton>
+))
 
 export const Navs = () =>
   [
     {
       title: 'Home',
       path: '/',
-      icon: AppHome,
     },
     {
       title: 'Service',
       path: '/service',
-      icon: BusinessCenter,
     },
     {
       title: 'Sign In',
       path: '/signin',
-      icon: VerifiedUser,
     },
-  ].map(({ title, path, icon: Icon }) => (
+  ].map(({ title, path }, idx) => (
     <Link to={path} key={title}>
-      <Icon />
+      {iconAry[idx]}
       {title}
     </Link>
   ))
 
-export const RouteList = () =>
-  [
+export const RouteList = () => {
+  const routers = [
     {
       path: '/',
       exact: true,
@@ -46,6 +51,9 @@ export const RouteList = () =>
     },
     {
       path: '*',
-      component: NotFound,
+      component: C404,
     },
   ].map(({ path, component, ...rest }) => <Route path={path} component={component} key={path} {...rest} />)
+
+  return <Switch>{routers}</Switch>
+}

@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { AppBar, Toolbar, Typography } from '@material-ui/core'
+import IconButton from '@material-ui/core/IconButton'
+import Icon from '@material-ui/core/Icon'
 import { Home as HomeIcon } from '@material-ui/icons'
 import faker from 'faker'
 import { defer } from '@ws-fullstack/lib'
@@ -18,7 +20,9 @@ export default function (props) {
       <div>
         <AppBar position="static">
           <Toolbar>
-            <HomeIcon />
+            <IconButton>
+              <Icon>Home</Icon>
+            </IconButton>
             <Title />
           </Toolbar>
         </AppBar>

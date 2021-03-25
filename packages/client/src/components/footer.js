@@ -55,12 +55,12 @@ export default function ({ services = [], symbol, emoji }) {
         {symbol}
       </span>
       <Box color="primary.main">
-        <Typography component="span" variant="subtitle1" color="textPrimary" align="center">
+        <Typography variant="body2" color="textSecondary" align="center">
           Copyright ©
           <Link color="inherit" href="http://www.bestitconsulting.com/">
             {title}
           </Link>
-          {` Current Version ${version} in ${new Date().getFullYear()}. `}
+          {` Version ${version}, ${new Date().getFullYear()}. `}
         </Typography>
       </Box>
     </>

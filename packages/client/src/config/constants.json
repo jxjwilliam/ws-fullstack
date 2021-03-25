@@ -1,67 +1,72 @@
 {
-  "DEFAULT_HOME_PAGE": "/",
-  "DEFAULT_LOGIN_PAGE": "/signin",
-  "DIALOG_LOGIN_PAGE": "/login",
+  "HOME_PAGE": "/",
+  "LOGIN_PAGE": "/signin",
+  "SIDE_LOGIN_PAGE": "/login",
   "REGISTER_PAGE": "/signup",
-  "SIGNOUT_PAGE": "/logout",
+  "LOGOUT_PAGE": "/logout",
   "HEADERS": {
     "Content-type": "application/json",
     "Accept": "application/json"
   },
   "TOKEN": "authToken",
-  "menus": [
+  "Menus": [
     {
       "type": "Services",
       "list": [
-        "风险管理",
-        "核心企业",
-        "供应商",
-        "客户信息",
-        "融资管理",
-        "凭证"
+        "vancouver",
+        "signapore",
+        "new-york",
+        "chicago",
+        "shenzhen",
+        "hongkong"
       ]
     },
     {
       "type": "Playground",
       "list": [
-        "登录",
-        "切换用户登录",
-        "退出",
-        "注册"
+        "pzza",
+        "sushi",
+        "panda-express",
+        "buffet"
       ]
     },
     {
       "type": "GraphQL & Gatsby",
       "list": [
-        "登录",
-        "切换用户登录",
-        "退出",
-        "注册"
+        "apollo",
+        "federation",
+        "gatsby",
+        "jamstack"
       ]
     },
     {
       "type": "Docs",
       "list": [
-        "首页",
-        "404"
+        "gitbook",
+        "gist"
       ]
     },
     {
       "type": "Misc",
       "list": [
-        "首页",
-        "404"
+        "javascript",
+        "react",
+        "node",
+        "monorepo",
+        "architecture",
+        "microservices"
       ]
     }
   ],
-  "emails": {
+  "Emails": {
     "admin": "admin@bestitconsulting.com",
     "support": "support@bestitconsulting.com"
   },
-  "contacts": {
+  "Contacts": {
     "office": "1(236)-992-3846",
     "business": "1(778)-881-2489"
   },
-  "title": "Best IT Consulting",
-  "description": "Description"
+  "Title": "Best IT Consulting",
+  "Description": "Description",
+  "Site": "http://www.bestitconsulting.com"
 }

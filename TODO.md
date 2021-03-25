@@ -27,3 +27,15 @@
 - awesome fonts
 - grid.js
 - table.js
+
+
+### ShortCodes
+
+- 
+rfc, rfce, rfcp
+rafcp,rafc,rafce
+rmc, rmcp,
+cmmb
+desc, test, tit,
+stest
+hoc

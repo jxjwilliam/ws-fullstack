@@ -7,8 +7,8 @@ import {
   LocationOn as LocationOnIcon,
   Folder as FolderIcon,
 } from '@material-ui/icons'
-import { version } from '../../../package.json'
-import { title } from '../../config/constants.json'
+import { version } from '../../package.json'
+import { Title, Site, Description } from '../config/constants.json'
 
 const useStyles = makeStyles({
   root: {
@@ -57,8 +57,8 @@ export default function ({ services = [], symbol, emoji }) {
       <Box color="primary.main">
         <Typography variant="body2" color="textSecondary" align="center">
           Copyright ©
-          <Link color="inherit" href="http://www.bestitconsulting.com/">
-            {title}
+          <Link color="inherit" href={Site} alt={Description}>
+            {Title}
           </Link>
           {` Version ${version}, ${new Date().getFullYear()}. `}
         </Typography>

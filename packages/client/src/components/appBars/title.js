@@ -1,6 +1,6 @@
 import React from 'react'
-import { title, description } from '../../config/constants.json'
+import { Title, Description } from '../../config/constants.json'
 
 export default function () {
-  return <div title={description}>{title}</div>
+  return <div title={Description}>{Title}</div>
 }

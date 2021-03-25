@@ -22,7 +22,7 @@ import {
   Link,
 } from '@material-ui/core'
 import { AccountCircle, Home as HomeIcon } from '@material-ui/icons'
-import Signin from '../../02-auth'
+import { Signin } from '../../02-auth'
 import { checkLogin, getToken, pageReload } from '../../config/utils'
 
 const useStyles = makeStyles(theme => ({

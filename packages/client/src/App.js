@@ -1,7 +1,8 @@
 import { GiMaterialsScience } from 'react-icons/gi'
 import './App.css'
 import { Navs, RouteList } from './config'
-import { Title, Footer } from './components'
+import { Footer } from './components'
+import Title from './components/appBars/title'
 
 function App() {
   return (

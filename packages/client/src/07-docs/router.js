@@ -1,18 +1,22 @@
-import React from 'react'
+import { Description } from '@material-ui/icons'
 
 const navList = [
   {
-    path: '系统管理',
-    icon: 'LaptopWindows',
+    path: 'test',
+    icon: Description,
   },
 ]
-
 const mainList = [
   {
-    path: 'role',
-    title: 'Weather',
-    icon: 'Person',
-    component: <h1>Component</h1>,
+    nav: 'test',
+    main: [
+      {
+        path: '角色查询',
+        title: 'Weather',
+        icon: Description,
+        component: <h2>Hello Test</h2>,
+      },
+    ],
   },
 ]
 

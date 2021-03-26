@@ -50,11 +50,6 @@ export const menuList = [
     icon: SupervisorAccount,
   },
   {
-    title: 'Profile',
-    path: '/profile',
-    icon: Store,
-  },
-  {
     title: 'Logout',
     path: '/logout',
     icon: LockOpen,

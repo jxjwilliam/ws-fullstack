@@ -1,7 +1,7 @@
 import React from 'react'
 import { Switch, Route } from 'react-router-dom'
 import { Home, Info } from '../01-home'
-import { C404, About, Contact, Profile } from '../containers'
+import { C404, About, Contact } from '../containers'
 import { Login, Signin, Register, Logout } from '../02-auth'
 import Services from '../03-services'
 import Playground from '../04-playground'
@@ -40,10 +40,6 @@ export default function () {
     {
       path: '/docs',
       component: Docs,
-    },
-    {
-      path: '/profile',
-      component: Profile,
     },
     {
       path: '/about',

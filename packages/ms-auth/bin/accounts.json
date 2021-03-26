@@ -1,0 +1,40 @@
+[
+  {
+    "username": "admin",
+    "email": "admin@bestitconsulting.com",
+    "phone": "13472581629",
+    "password": "123",
+    "role": {
+      "name": "admin"
+    },
+    "category": {
+      "name": "local"
+    }
+  },
+  {
+    "username": "test",
+    "email": "test@bestitconsulting.com",
+    "phone": "13472581628",
+    "password": "123",
+    "role": {
+      "name": "member"
+    },
+    "category": {
+      "name": "local"
+    },
+    "desc": "local test account"
+  },
+  {
+    "username": "demo",
+    "email": "demo@bestitconsulting.com",
+    "phone": "13472581626",
+    "password": "123",
+    "role": {
+      "name": "member"
+    },
+    "category": {
+      "name": "others"
+    },
+    "desc": "test account from 3rd party"
+  }
+]

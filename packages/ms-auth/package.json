@@ -1,0 +1,41 @@
+{
+  "name": "ms-auth",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon --exec babel-node ./server",
+    "dev": "cross-env NODE_ENV=development DEBUG=express:* nodemon --exec babel-node ./server",
+    "test": "mocha services/**/*.test.js"
+  },
+  "keywords": [],
+  "author": "Best IT Consulting Inc.",
+  "license": "ISC",
+  "dependencies": {
+    "@williamjiang/util": "^1.0.5",
+    "bcrypt": "^5.0.0",
+    "body-parser": "^1.19.0",
+    "crypto": "^1.0.1",
+    "debug": "^4.1.1",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-jwt": "^6.0.0",
+    "http-errors": "^1.7.3",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.9.16",
+    "morgan": "^1.10.0",
+    "node-fetch": "^2.6.0",
+    "passport": "^0.4.1",
+    "validator": "^13.1.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.9.6",
+    "@babel/node": "^7.8.7",
+    "@babel/preset-env": "^7.9.6",
+    "chai": "^4.2.0",
+    "cross-env": "^7.0.2",
+    "mocha": "^8.1.1",
+    "nodemon": "^2.0.4"
+  }
+}

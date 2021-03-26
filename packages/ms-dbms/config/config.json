@@ -1,0 +1,35 @@
+{
+  "development": {
+    "database": "dbms",
+    "username": "dbms_user",
+    "password": "dbms~123456$",
+    "host": "localhost",
+    "port": 3306,
+    "dialect": "mysql"
+  },
+  "test": {
+    "database": "dbms",
+    "username": "dbms_user",
+    "password": "dbms~123456$",
+    "host": "localhost",
+    "port": 3306,
+    "dialect": "mysql"
+  },
+  "stage": {
+    "description": "macbook_docker_mysql",
+    "username": "test_user",
+    "password": "test123",
+    "database": "ms-dbms-stage",
+    "host": "192.168.0.24",
+    "port": 6033,
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "test_user",
+    "password": "test123",
+    "database": "ms-dbms-production",
+    "host": "127.0.0.1",
+    "port": 6033,
+    "dialect": "mysql"
+  }
+}

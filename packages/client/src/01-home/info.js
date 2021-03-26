@@ -87,12 +87,12 @@ export default function (props) {
               {routers}
             </Toolbar>
           </AppBar>
+          <SimpleCard data={data[0]} />
+          <SimpleCard data={data[1]} />
           <Box my={4}>
             <ProTip />
             <Emoji symbol="💪🎋 🍃 🍂 🍁 🍄 🌾 💐 🌷 🌹 🥀 🌺 🌸 🌼 🌻 🌞 🌝" />
           </Box>
-          <SimpleCard data={data[0]} />
-          <SimpleCard data={data[1]} />
         </Container>
       </ThemeProvider>
     )

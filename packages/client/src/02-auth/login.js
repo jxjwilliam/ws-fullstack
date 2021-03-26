@@ -51,7 +51,6 @@ export default function () {
 
   const onSubmit = async formData => {
     setLoading(true)
-
     try {
       const ret = await fetching('/api/v1/login', {
         method: 'post',
@@ -74,11 +73,11 @@ export default function () {
   }
 
   if (loading) return <Loading />
-  if (error) return <Error />
+  if (error) return <Error error={error} />
   if (data?.notfound) return <NotFound />
-  return data ? (
-    <Redirect to={HOME_PAGE} />
-  ) : (
+  if (data) return <Redirect to={HOME_PAGE} />
+
+  return (
     <Container component="main" maxWidth="xs">
       <CssBaseline />
       <div className={classes.paper}>
@@ -102,9 +101,7 @@ export default function () {
             autoFocus
             ref={register({ required: 'this is a required' })}
           />
-
           {errors.email && <p>{errors.email.message}</p>}
-
           <TextField
             variant="outlined"
             margin="normal"

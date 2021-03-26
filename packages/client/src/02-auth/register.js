@@ -15,7 +15,7 @@ import Container from '@material-ui/core/Container'
 import { Redirect, Link } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
 import { LOGIN_PAGE } from '../config/constants.json'
-import { useFetching } from '../config/fetch'
+import { fetching } from '../config/fetch'
 import { Loading, Error } from '../containers'
 
 const useStyles = makeStyles(theme => ({
@@ -38,31 +38,38 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
-function Fetcher({ body }) {
-  const { data, loading, error } = useFetching('/api/v1/register', {
-    method: 'post',
-    needAuth: false,
-    body: JSON.stringify(body),
-  })
-
-  if (loading) return <Loading />
-  if (error) return <Error error={error} />
-  if (data?.message === 'success') return <Redirect to={LOGIN_PAGE} />
-  return null
-}
-
 export default function () {
   const classes = useStyles()
   const { register, errors, handleSubmit } = useForm({
     mode: 'onChange',
   })
-  const [formData, setFormData] = useState(null)
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState(null)
+  const [data, setData] = useState(null)
 
-  const onSubmit = fData => {
-    setFormData(fData)
+  const onSubmit = async formData => {
+    setLoading(true)
+    try {
+      const ret = await fetching('/api/v1/register', {
+        method: 'post',
+        needAuth: false,
+        body: JSON.stringify(formData),
+      })
+      if (ret?.message) {
+        setData(ret.message)
+      }
+    } catch (err) {
+      setError(err)
+      setData(null)
+    } finally {
+      setLoading(false)
+    }
   }
 
-  if (formData) return <Fetcher body={formData} />
+  if (loading) return <Loading />
+  if (error) return <Error error={error} />
+  if (data === 'success') return <Redirect to={LOGIN_PAGE} />
+
   return (
     <Container component="main" maxWidth="xs">
       <CssBaseline />

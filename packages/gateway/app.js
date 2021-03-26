@@ -1,32 +1,71 @@
 const createError = require('http-errors')
 const express = require('express')
 const path = require('path')
-const cookieParser = require('cookie-parser')
 const logger = require('morgan')
+const httpProxy = require('http-proxy')
+const favicon = require('serve-favicon')
+const cors = require('cors')
+const helmet = require('helmet')
+const expressJwt = require('express-jwt')
 
-const indexRouter = require('./routes/index')
-const usersRouter = require('./routes/users')
+require('dotenv').config()
 
 const app = express()
+app.set('port', process.env.PORT)
 
-// view engine setup
-app.set('views', path.join(__dirname, 'views'))
-app.set('view engine', 'jade')
+const jwtSecretSalt = process.env.SECRET
 
-app.use(logger('dev'))
-app.use(express.json())
-app.use(express.urlencoded({ extended: false }))
-app.use(cookieParser())
-app.use(express.static(path.join(__dirname, 'public')))
+app
+  .use(favicon(path.join(__dirname, 'favicon.svg')))
+  .use(cors())
+  .use(logger('dev'))
+  .use(helmet())
+  .use(express.static(path.join(__dirname, 'build')))
 
-app.use('/', indexRouter)
-app.use('/users', usersRouter)
+// 1. 测试接口
+app.get('/', (req, res) => {
+  res.status(200).send('Hello from BFF proxy server!')
+})
+
 app.post('/api/v1/login', (req, res) => res.json({ token: '12345' }))
 app.post('/api/v1/register', (req, res) => res.status(200).json({ message: 'success' }))
 app.get('/api/v1/logout', (req, res) => res.json({ token: null }))
 
-// catch 404 and forward to error handler
+const apiProxy = httpProxy.createProxyServer()
+const { MS_AUTH, MS_DBMS, MS_NOSQL, MS_REDIS } = process.env
+
+// 2. MS-AUTH
+app.all('/auth/*', (req, res) => {
+  console.log(`${req.url} redirects to ${MS_AUTH}`)
+  apiProxy.web(req, res, { target: MS_AUTH })
+})
+
+// eslint-disable-next-line no-unused-vars, consistent-return
+app.use(expressJwt({ secret: jwtSecretSalt, algorithms: ['HS256'] }), (err, req, res, next) => {
+  if (err.name) {
+    const { name, message, status, code } = err
+    return res.status(status).json({ name, message, code, status })
+  }
+})
+
+app.all('/dbms/*', (req, res) => {
+  console.log(`${req.url} redirects to ${MS_DBMS}`)
+  apiProxy.web(req, res, { target: MS_DBMS })
+})
+
+app.all(['/mongo/*', '/nosql/*'], (req, res) => {
+  console.log(`${req.url} redirects to ${MS_NOSQL}`)
+  apiProxy.web(req, res, { target: MS_NOSQL })
+})
+
+app.all('/redis/*', (req, res) => {
+  console.log(`${req.url} redirects to ${MS_REDIS}`)
+  apiProxy.web(req, res, { target: MS_REDIS })
+})
+
 app.use((req, res, next) => {
+  const { url, params, query, body } = req
+  console.error('BFF-路由服务器 无效URL: ', url, params, query, body)
   next(createError(404))
 })
 

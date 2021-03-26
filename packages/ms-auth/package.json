@@ -1,6 +1,7 @@
 {
   "name": "ms-auth",
   "version": "1.0.0",
+  "private": true,
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -12,7 +13,6 @@
   "author": "Best IT Consulting Inc.",
   "license": "ISC",
   "dependencies": {
-    "@williamjiang/util": "^1.0.5",
     "bcrypt": "^5.0.0",
     "body-parser": "^1.19.0",
     "crypto": "^1.0.1",

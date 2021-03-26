@@ -1,16 +1,22 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Avatar from '@material-ui/core/Avatar'
 import Button from '@material-ui/core/Button'
 import CssBaseline from '@material-ui/core/CssBaseline'
 import TextField from '@material-ui/core/TextField'
 import FormControlLabel from '@material-ui/core/FormControlLabel'
 import Checkbox from '@material-ui/core/Checkbox'
-import Link from '@material-ui/core/Link'
+import { Link as MuiLink } from '@material-ui/core'
 import Grid from '@material-ui/core/Grid'
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined'
 import Typography from '@material-ui/core/Typography'
 import { makeStyles } from '@material-ui/core/styles'
 import Container from '@material-ui/core/Container'
+// william added
+import { Redirect, Link } from 'react-router-dom'
+import { useForm } from 'react-hook-form'
+import { LOGIN_PAGE } from '../config/constants.json'
+import { useFetching } from '../config/fetch'
+import { Loading, Error } from '../containers'
 
 const useStyles = makeStyles(theme => ({
   paper: {
@@ -32,9 +38,31 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
-export default function SignUp() {
-  const classes = useStyles()
+function Fetcher({ body }) {
+  const { data, loading, error } = useFetching('/api/v1/register', {
+    method: 'post',
+    needAuth: false,
+    body: JSON.stringify(body),
+  })
 
+  if (loading) return <Loading />
+  if (error) return <Error error={error} />
+  if (data?.message === 'success') return <Redirect to={LOGIN_PAGE} />
+  return null
+}
+
+export default function () {
+  const classes = useStyles()
+  const { register, errors, handleSubmit } = useForm({
+    mode: 'onChange',
+  })
+  const [formData, setFormData] = useState(null)
+
+  const onSubmit = fData => {
+    setFormData(fData)
+  }
+
+  if (formData) return <Fetcher body={formData} />
   return (
     <Container component="main" maxWidth="xs">
       <CssBaseline />
@@ -45,13 +73,14 @@ export default function SignUp() {
         <Typography component="h1" variant="h5">
           Sign up
         </Typography>
-        <form className={classes.form} noValidate>
+        <form className={classes.form} noValidate onSubmit={handleSubmit(onSubmit)}>
           <Grid container spacing={2}>
             <Grid item xs={12} sm={6}>
               <TextField
                 autoComplete="fname"
                 name="firstName"
                 variant="outlined"
+                inputRef={register}
                 required
                 fullWidth
                 id="firstName"
@@ -62,6 +91,7 @@ export default function SignUp() {
             <Grid item xs={12} sm={6}>
               <TextField
                 variant="outlined"
+                inputRef={register}
                 required
                 fullWidth
                 id="lastName"
@@ -73,6 +103,7 @@ export default function SignUp() {
             <Grid item xs={12}>
               <TextField
                 variant="outlined"
+                inputRef={register}
                 required
                 fullWidth
                 id="email"
@@ -80,10 +111,12 @@ export default function SignUp() {
                 name="email"
                 autoComplete="email"
               />
+              {errors.email && <p>{errors.email.message}</p>}
             </Grid>
             <Grid item xs={12}>
               <TextField
                 variant="outlined"
+                inputRef={register}
                 required
                 fullWidth
                 name="password"
@@ -92,6 +125,7 @@ export default function SignUp() {
                 id="password"
                 autoComplete="current-password"
               />
+              {errors.password && <p>{errors.password.message}</p>}
             </Grid>
             <Grid item xs={12}>
               <FormControlLabel
@@ -105,9 +139,9 @@ export default function SignUp() {
           </Button>
           <Grid container justify="flex-end">
             <Grid item>
-              <Link href="#" variant="body2">
+              <MuiLink component={Link} to={LOGIN_PAGE} variant="body2">
                 Already have an account? Sign in
-              </Link>
+              </MuiLink>
             </Grid>
           </Grid>
         </form>

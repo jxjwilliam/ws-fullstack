@@ -13,14 +13,22 @@ function pageReload() {
 
 const getToken = () => {
   const authToken = sessionStorage.getItem(TOKEN)
-  return authToken ? jwt_decode(authToken) : {}
+  return authToken
+  // return authToken ? jwt_decode(authToken) : {}
 }
 
-const checkLogin = () => false
-const checkLogin1 = auth => {
+const removeToken = () => {
+  if (getToken()) sessionStorage.removeItem(TOKEN)
+}
+
+const setToken = token => {
+  sessionStorage.setItem(TOKEN, token)
+}
+
+const checkLogin = auth => {
   const authToken = auth?.token || sessionStorage.getItem(TOKEN)
   if (!authToken) return <Redirect to={LOGIN_PAGE} />
   return null
 }
 
-export { pageReload, getToken, checkLogin }
+export { pageReload, getToken, removeToken, setToken, checkLogin }

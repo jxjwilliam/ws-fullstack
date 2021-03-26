@@ -10,14 +10,14 @@ import Profile from './Profile'
 import FormDialog from '../dialogs/Dialog1'
 import { LOGIN_PAGE } from '../../config/constants.json'
 import * as menus from '../menus'
-import { navList } from '../../config/routers'
+import { menuList } from '../../config'
 
 const Group1 = () => (
   <>
     <Link href="/" color="inherit" variant="h6">
       <HomeIcon />
     </Link>
-    <menus.Menu1 routers={navList} Icon={BusinessIcon} title="Business" />
+    <menus.Menu1 routers={menuList} Icon={BusinessIcon} title="Business" />
     <Gitbook />
   </>
 )

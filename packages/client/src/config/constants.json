@@ -1,7 +1,7 @@
 {
   "HOME_PAGE": "/",
-  "LOGIN_PAGE": "/signin",
-  "SIDE_LOGIN_PAGE": "/login",
+  "LOGIN_PAGE": "/login",
+  "SIDE_LOGIN_PAGE": "/signin",
   "REGISTER_PAGE": "/signup",
   "LOGOUT_PAGE": "/logout",
   "HEADERS": {

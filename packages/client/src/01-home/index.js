@@ -1,2 +1,4 @@
-export { default as Home } from './home'
-export { default as Service } from './service'
+import Home from './home'
+import Info from './info'
+
+export { Home, Info }

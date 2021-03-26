@@ -21,6 +21,9 @@ app.use(express.static(path.join(__dirname, 'public')))
 
 app.use('/', indexRouter)
 app.use('/users', usersRouter)
+app.post('/api/v1/login', (req, res) => res.json({ token: '12345' }))
+app.post('/api/v1/register', (req, res) => res.status(200).json({ message: 'success' }))
+app.get('/api/v1/logout', (req, res) => res.json({ token: null }))
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {

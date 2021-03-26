@@ -1,13 +1,12 @@
 import React, { useEffect } from 'react'
 import { Redirect } from 'react-router-dom'
-import { LOGIN_PAGE, TOKEN } from '../config/constants.json'
+import { LOGIN_PAGE } from '../config/constants.json'
+import { removeToken } from '../config/utils'
 
-export default function (props) {
+export default function () {
   useEffect(() => {
-    props
-      .logoutAction()
-      .then(() => sessionStorage.removeItem(TOKEN))
-      .catch(e => console.error(e))
+    removeToken()
   }, [])
+
   return <Redirect to={LOGIN_PAGE} />
 }

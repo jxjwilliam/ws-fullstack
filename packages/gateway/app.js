@@ -29,7 +29,7 @@ app.get('/', (req, res) => {
 
 app.post('/api/v1/login', (req, res) => res.json({ token: '12345' }))
 app.post('/api/v1/register', (req, res) => res.status(200).json({ message: 'success' }))
-app.get('/api/v1/logout', (req, res) => res.json({ token: null }))
+app.get('/api/v1/logout', (req, res) => res.json({ token: null, message: 'success process' }))
 
 const apiProxy = httpProxy.createProxyServer()
 const { MS_AUTH, MS_DBMS, MS_NOSQL, MS_REDIS } = process.env

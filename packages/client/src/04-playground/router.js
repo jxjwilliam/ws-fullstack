@@ -14,7 +14,7 @@ const mainList = [
         path: '角色查询',
         title: 'Weather',
         icon: Description,
-        component: <h2>Hello Test</h2>,
+        component: <h2>Playground</h2>,
       },
     ],
   },

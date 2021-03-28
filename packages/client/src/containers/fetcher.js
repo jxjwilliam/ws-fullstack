@@ -25,7 +25,7 @@ function useFetcher(action) {
     return () => {
       isMounted = false
     }
-  }, [])
+  }, [action])
 
   return [data, loading, error]
 }

@@ -28,7 +28,7 @@ const fetchingGithub = searchKey => async () => {
 }
 
 function callMe() {
-  return 'Best IT Consulting Ltd.'
+  return 'Called by Best IT Consulting Ltd.'
 }
 
 const renderGithub = data => <div>{JSON.stringify(data, null, 4)}</div>
@@ -44,7 +44,7 @@ export default function () {
 
   return (
     <>
-      <h1>Playground - github</h1>
+      <h1>Playground - Fetcher github</h1>
       <form onSubmit={handleSubmit(onSubmit)}>
         <input type="text" name="search" placeholder="what to search?" ref={register} />
         <button type="submit">Search</button>
@@ -56,12 +56,13 @@ export default function () {
       <hr />
       <div style={{ margin: '2rem' }}>
         <h2>String: api.github.com/users/{search}</h2>
-        <Fetcher action={`https://api.github.com/users/${search}`}>{data => renderGithub(data)}</Fetcher>
+        <Fetcher action={`https://api.github.com/users/${search}`}>{renderGithub}</Fetcher>
       </div>
       <hr />
       <div style={{ margin: '2rem' }}>
         <h2>pass Object: url, opts</h2>
         <Fetcher
+          search={search}
           action={{
             url: '/api/v1/logout',
             opts: {
@@ -70,13 +71,13 @@ export default function () {
             },
           }}
         >
-          {data => renderGithub(data)}
+          {renderGithub}
         </Fetcher>
       </div>
       <hr />
       <div style={{ margin: '2rem' }}>
         <h2>pass Function</h2>
-        <Fetcher action={callMe}>{data => renderGithub(data)}</Fetcher>
+        <Fetcher action={callMe}>{renderGithub}</Fetcher>
       </div>
     </>
   )

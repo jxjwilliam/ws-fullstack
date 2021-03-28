@@ -2,32 +2,6 @@ import { useState, useEffect } from 'react'
 import { HEADERS, TOKEN } from './constants.json'
 
 /**
- * login, access-ms, file-upload, 3rd-proxy
- */
-const Options = {
-  localAuth: {
-    needAuth: false,
-    isProxy: false,
-    isUpload: false,
-  },
-  localApi: {
-    needAuth: true,
-    isProxy: false,
-    isUpload: false,
-  },
-  localUpload: {
-    needAuth: true,
-    isProxy: false,
-    isUpload: true,
-  },
-  proxy: {
-    needAuth: false,
-    isProxy: true,
-    isUpload: false,
-  },
-}
-
-/**
  * 1. local 加token，有content-type和accept
  * 2. 上传文件，加token，但没有content-type
  * 3. 代理第三方服务不加，但有content-type和accept

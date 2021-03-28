@@ -15,9 +15,9 @@ import { makeStyles } from '@material-ui/core/styles'
 import { Redirect, Link } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
 import { HOME_PAGE, REGISTER_PAGE } from '../config/constants.json'
-import { fetching } from '../config/fetch'
-import { setToken } from '../config/utils'
+import { fetching, setToken } from '../config'
 import { Loading, NotFound, Error } from '../containers'
+import useAuth from '../useHooks/use-auth'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -49,36 +49,28 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
+const myFunction = async (url, options) => {
+  const ret = await fetch(url, options)
+  const json = await ret.json()
+  return json
+}
+
 export default function () {
   const classes = useStyles()
   const { register, errors, handleSubmit } = useForm({
     mode: 'onChange',
   })
-  const [loading, setLoading] = useState(false)
-  const [error, setError] = useState(null)
-  const [data, setData] = useState(null)
+
+  const onCompleted = token => {
+    if (token) setToken(token)
+  }
+  const [login, { loading, error, data }] = useAuth(myFunction, false, { onCompleted })
 
   const onSubmit = async formData => {
-    setLoading(true)
-    try {
-      const ret = await fetching('/api/v1/login', {
-        method: 'post',
-        needAuth: false,
-        body: JSON.stringify(formData),
-      })
-      if (ret?.token) {
-        setToken(ret.token)
-        setData(ret.token)
-      } else {
-        setData({ notfound: true })
-        console.error('something wrong', ret)
-      }
-    } catch (err) {
-      setError(err)
-      setData(null)
-    } finally {
-      setLoading(false)
-    }
+    await login('/api/v1/login', {
+      method: 'post',
+      body: JSON.stringify(formData),
+    })
   }
 
   if (loading) return <Loading />

@@ -41,6 +41,19 @@ etc: drawio, general usage/config: docker, travis, netlify,
 
 ## Auth
 
+### fetch options default setting
+
+- needAuth: false
+- isProxy: false
+- isUpload: false
+
+| Fetch Options                         | default                           | Annotation                |
+| ------------------------------------- | --------------------------------- | ------------------------- |
+| `local` auth access                   | `default`                         | login, register           |
+| `local` microservices api/rest access | `needAuth`=true                   | ms-access                 |
+| `local` static contetns access        | `needdAuth`=true, `isUpload`=true | file-upload               |
+| cloud/saas access                     | `isProxy`=true                    | 3rd api: sms, public-apis |
+
 ## Nginx, Docker
 
 ## Q / A

@@ -3,11 +3,12 @@ import { Switch, Route } from 'react-router-dom'
 import { Home, Info } from '../01-home'
 import { C404, About, Contact } from '../containers'
 import { Login, Signin, Register, Logout } from '../02-auth'
-import Services from '../03-services'
+import Hooks from '../03-hooks'
 import Playground from '../04-playground'
 import GraphQL from '../05-graphql'
 import Mui from '../06-mui'
 import Docs from '../07-docs'
+import Customer from '../08-customer'
 import { HOME_PAGE, LOGIN_PAGE, SIDE_LOGIN_PAGE, REGISTER_PAGE, LOGOUT_PAGE } from './constants.json'
 
 export default function () {
@@ -18,12 +19,16 @@ export default function () {
       component: Home,
     },
     {
+      path: '/客户信息',
+      component: Customer,
+    },
+    {
       path: '/info',
       component: Info,
     },
     {
-      path: '/services',
-      component: Services,
+      path: '/hooks',
+      component: Hooks,
     },
     {
       path: '/playground',

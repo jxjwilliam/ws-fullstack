@@ -1,20 +1,25 @@
 import { Description } from '@material-ui/icons'
+import Github from './github'
 
-const navList = [
-  {
-    path: 'test',
-    icon: Description,
-  },
-]
+const navList = {
+  base: 'Playground',
+  navs: [
+    {
+      path: 'github',
+      icon: Description,
+    },
+  ],
+}
+
 const mainList = [
   {
-    nav: 'test',
+    nav: 'github',
     main: [
       {
-        path: '角色查询',
-        title: 'Weather',
+        path: 'github',
+        title: 'Github',
         icon: Description,
-        component: <h2>Playground</h2>,
+        component: Github,
       },
     ],
   },

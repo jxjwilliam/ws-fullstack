@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import getPageLayout from '../components/layout/logic'
 import { navList, mainList } from './router'
 
-export default class Mui extends Component {
+export default class Hooks extends Component {
   render() {
     const {
       location: { pathname },

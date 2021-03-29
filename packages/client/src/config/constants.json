@@ -11,7 +11,7 @@
   "TOKEN": "authToken",
   "Menus": [
     {
-      "type": "Services",
+      "type": "Hooks",
       "list": [
         "vancouver",
         "signapore",

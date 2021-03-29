@@ -6,17 +6,16 @@ import { ThemeProvider } from '@material-ui/styles'
 import { Home as HomeIcon } from '@material-ui/icons'
 import faker from 'faker'
 import { defer } from '@ws-fullstack/lib'
-import { checkLogin } from '../config/utils'
 import Title from '../components/appBars/title'
-import { Emoji, ProTip, SimpleCard } from '../components'
+import { Emoji, ProTip, SimpleCard, Menu2 } from '../components'
 import theme from '../themes'
-import { menuList } from '../config/navs'
-import { navList as navs1 } from '../03-services/router'
+import { menuList, checkLogin } from '../config'
+import { navList as navs1 } from '../03-hooks/router'
 import { navList as navs2 } from '../04-playground/router'
 import { navList as navs3 } from '../05-graphql/router'
 import { navList as navs4 } from '../06-mui/router'
 import { navList as navs5 } from '../07-docs/router'
-import { Menu2 } from '../components/menus'
+import { navList as navs6 } from '../08-customer/router'
 
 const useStyles = makeStyles({
   root: {
@@ -26,22 +25,11 @@ const useStyles = makeStyles({
   },
 })
 
-const getMap = () => {
-  const Routers = [navs1, navs2, navs3, navs4, navs5]
-  return menuList.reduce((map, br, idx) => {
-    if (!Routers[idx]) return map
-    const { component, ...others } = br
-    map.set(others, Routers[idx])
-    return map
-  }, new Map())
-}
-
 const patch = routers => {
-  const certificate = menuList[menuList.length - 1]
-  const { path, title, icon: Icon } = certificate
+  const { path, title, icon: Icon } = menuList[menuList.length - 1]
   return routers.push(
     <ButtonGroup key={title} ariant="contained" aria-label="outlined primary button group">
-      <Button color="inherit" startIcon={<Icon />} component={Link} href={path}>
+      <Button color="inherit" startIcon={<Icon />} component={Link} to={path}>
         {title}
       </Button>
     </ButtonGroup>,
@@ -49,21 +37,17 @@ const patch = routers => {
 }
 
 function getNavList() {
-  const all5 = getMap()
-  const routers = []
-  // eslint-disable-next-line no-restricted-syntax
-  for (const [key, value] of all5) {
-    const { path, title, icon: CompIcon } = key
-    routers.push(
+  const routers = [navs1, navs2, navs3, navs4, navs5, navs6]
+  return menuList.map(({ title, path, icon: CompIcon }) => {
+    const subNavs = routers.find(({ base }) => base === title)?.navs || []
+    return (
       <ButtonGroup key={title}>
-        <Menu2 routers={value} base={path} title={title} Icon={CompIcon} />
-      </ButtonGroup>,
+        <Menu2 routers={subNavs} base={path} title={title} Icon={CompIcon} />
+      </ButtonGroup>
     )
-  }
-  patch(routers)
-
-  return routers
+  })
 }
+
 export default function (props) {
   const classes = useStyles()
   const routers = getNavList()
@@ -87,12 +71,14 @@ export default function (props) {
               {routers}
             </Toolbar>
           </AppBar>
-          <SimpleCard data={data[0]} />
-          <SimpleCard data={data[1]} />
-          <Box my={4}>
-            <ProTip />
-            <Emoji symbol="💪🎋 🍃 🍂 🍁 🍄 🌾 💐 🌷 🌹 🥀 🌺 🌸 🌼 🌻 🌞 🌝" />
-          </Box>
+          <main style={{ alignItems: 'center', marginTop: '6rem' }}>
+            <SimpleCard data={data[0]} />
+            <SimpleCard data={data[1]} />
+            <Box my={4}>
+              <ProTip />
+              <Emoji symbol="💪🎋 🍃 🍂 🍁 🍄 🌾 💐 🌷 🌹 🥀 🌺 🌸 🌼 🌻 🌞 🌝" />
+            </Box>
+          </main>
         </Container>
       </ThemeProvider>
     )

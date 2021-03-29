@@ -23,7 +23,6 @@ import {
 } from '@material-ui/core'
 import { AccountCircle, Home as HomeIcon } from '@material-ui/icons'
 import { Signin } from '../../02-auth'
-import { checkLogin, getToken, pageReload } from '../../config/utils'
 
 const useStyles = makeStyles(theme => ({
   button: {
@@ -66,13 +65,7 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
-export default function (props) {
-  const {
-    children,
-    auth: { token },
-  } = props
-  const account = getToken().username || 'TODO-getToken.account'
-
+export default function ({ children }) {
   const classes = useStyles()
   const [anchorEl, setAnchorEl] = useState(null)
   const [open, setOpen] = useState(false)
@@ -112,7 +105,6 @@ export default function (props) {
   const handleOk = () => {
     // TODO: logout flow.
     handleClose()
-    pageReload()
   }
 
   const menuId = 'primary-search-account-menu'
@@ -130,7 +122,6 @@ export default function (props) {
         <MenuItem onClick={handleOpen2}>切换账户</MenuItem>
         <MenuItem onClick={handleOpen1}>我的账户</MenuItem>
         <MenuItem onClick={handleOpen}>退出</MenuItem>
-        {account && <MenuItem>账号：{account}</MenuItem>}
       </Menu>
       <Dialog open={open2} onClose={handleClose2}>
         <Signin />
@@ -194,30 +185,28 @@ export default function (props) {
   )
 
   return (
-    checkLogin(token) || (
-      <div className={classes.grow}>
-        <AppBar position="static">
-          <Toolbar>
-            <Link href="/" color="inherit" variant="h6">
-              <HomeIcon />
-            </Link>
-            {children}
-            <div className={classes.sectionDesktop}>
-              <IconButton
-                edge="end"
-                aria-label="account of current user"
-                aria-controls={menuId}
-                aria-haspopup="true"
-                onClick={handleProfileMenuOpen}
-                color="inherit"
-              >
-                <AccountCircle />
-              </IconButton>
-            </div>
-          </Toolbar>
-        </AppBar>
-        {renderMenu}
-      </div>
-    )
+    <div className={classes.grow}>
+      <AppBar position="static">
+        <Toolbar>
+          <Link href="/" color="inherit" variant="h6">
+            <HomeIcon />
+          </Link>
+          {children}
+          <div className={classes.sectionDesktop}>
+            <IconButton
+              edge="end"
+              aria-label="account of current user"
+              aria-controls={menuId}
+              aria-haspopup="true"
+              onClick={handleProfileMenuOpen}
+              color="inherit"
+            >
+              <AccountCircle />
+            </IconButton>
+          </div>
+        </Toolbar>
+      </AppBar>
+      {renderMenu}
+    </div>
   )
 }

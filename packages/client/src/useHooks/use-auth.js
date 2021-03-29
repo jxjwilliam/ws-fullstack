@@ -1,5 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react'
-import { fetching } from '../config'
+import { useState, useEffect, useCallback } from 'react'
 
 export default function (asyncFunction, immediate = true, opts) {
   const [loading, setLoading] = useState(false)

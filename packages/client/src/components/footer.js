@@ -13,12 +13,14 @@ import { Title, Site, Description } from '../config/constants.json'
 const useStyles = makeStyles({
   root: {
     width: 500,
-    margin: 'auto',
+    margin: '2rem auto',
   },
-  emoji: {},
+  box: {
+    alignItems: 'flex-end',
+  },
 })
 
-export default function ({ services = [], symbol, emoji }) {
+export default function ({ services = [] }) {
   const classes = useStyles()
   const [value, setValue] = useState('recents')
 
@@ -46,23 +48,21 @@ export default function ({ services = [], symbol, emoji }) {
     },
   ].map(({ label, icon: Icon }) => <BottomNavigationAction label={label} value={label} icon={<Icon />} key={label} />)
 
+  const year = new Date().getFullYear()
   return (
-    <>
-      <BottomNavigation value={value} onChange={handleChange} className={classes.root}>
+    <footer className={classes.root}>
+      <BottomNavigation value={value} onChange={handleChange}>
         {info}
       </BottomNavigation>
-      <span className={classes.emoji} role="img" aria-label={emoji} aria-hidden={emoji ? 'false' : 'true'}>
-        {symbol}
-      </span>
-      <Box color="primary.main">
+      <Box className={classes.box}>
         <Typography variant="body2" color="textSecondary" align="center">
           Copyright ©
           <Link color="inherit" href={Site} alt={Description}>
             {Title}
           </Link>
-          {` Version ${version}, ${new Date().getFullYear()}. `}
+          {`, Current version ${version}, in ${parseInt(year, 10)} - ${year}. `}
         </Typography>
       </Box>
-    </>
+    </footer>
   )
 }

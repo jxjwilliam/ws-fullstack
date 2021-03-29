@@ -1,6 +1,6 @@
 import React from 'react'
 import { Redirect } from 'react-router-dom'
-import jwt_decode from 'jwt-decode'
+// import jwt_decode from 'jwt-decode'
 import { TOKEN, LOGIN_PAGE } from './constants.json'
 
 // 401, 403, no token etc...

@@ -1,11 +1,15 @@
 import { Description } from '@material-ui/icons'
 
-const navList = [
-  {
-    path: 'test',
-    icon: Description,
-  },
-]
+const navList = {
+  base: 'Docs',
+  navs: [
+    {
+      path: 'test',
+      icon: Description,
+    },
+  ],
+}
+
 const mainList = [
   {
     nav: 'test',

@@ -1,20 +1,59 @@
-import { Description } from '@material-ui/icons'
+import { Description, Help } from '@material-ui/icons'
+import Checkout from './checkout/checkout'
+import Album from './album'
+import Price from './price'
+import StickyFooter from './sticky-footer'
 
-const navList = [
-  {
-    path: 'test',
-    icon: Description,
-  },
-]
+const navList = {
+  base: 'Mui',
+  navs: [
+    {
+      path: 'Templates',
+      icon: Description,
+    },
+    {
+      path: 'Help',
+      icon: Description,
+    },
+  ],
+}
+
 const mainList = [
   {
-    nav: 'test',
+    nav: 'Templates',
     main: [
       {
-        path: '角色查询',
-        title: 'Weather',
+        path: 'checkout',
+        title: 'Checkout',
         icon: Description,
-        component: <h2>Hello Test</h2>,
+        component: Checkout,
+      },
+      {
+        path: 'album',
+        title: 'Album',
+        icon: Description,
+        component: Album,
+      },
+      {
+        path: 'price',
+        title: 'Checkout',
+        icon: Description,
+        component: Price,
+      },
+      {
+        path: 'sticky-footer',
+        title: 'StickyFooter',
+        icon: Description,
+        component: StickyFooter,
+      },
+    ],
+  },
+  {
+    nav: 'Help',
+    main: [
+      {
+        path: 'help',
+        icon: Help,
       },
     ],
   },

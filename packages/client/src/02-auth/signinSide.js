@@ -49,22 +49,22 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
-const myFunction = async (url, options) => {
-  const ret = await fetch(url, options)
-  const json = await ret.json()
-  return json
-}
-
 export default function () {
   const classes = useStyles()
   const { register, errors, handleSubmit } = useForm({
     mode: 'onChange',
   })
 
+  const submitFunction = async (url, options) => {
+    const json = await fetching(url, options)
+    return json
+  }
+
   const onCompleted = token => {
     if (token) setToken(token)
   }
-  const [login, { loading, error, data }] = useAuth(myFunction, false, { onCompleted })
+
+  const [login, { loading, error, data }] = useAuth(submitFunction, false, { onCompleted })
 
   const onSubmit = async formData => {
     await login('/api/v1/login', {
@@ -119,7 +119,14 @@ export default function () {
             {errors.password && <p>{errors.password.message}</p>}
 
             <FormControlLabel control={<Checkbox value="remember" color="primary" />} label="Remember me" />
-            <Button type="submit" fullWidth variant="contained" color="primary" className={classes.submit}>
+            <Button
+              type="submit"
+              fullWidth
+              variant="contained"
+              color="primary"
+              className={classes.submit}
+              disabled={loading}
+            >
               Sign In
             </Button>
             <Grid container>

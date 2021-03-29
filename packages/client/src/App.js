@@ -1,6 +1,7 @@
 import { GiMaterialsScience } from 'react-icons/gi'
 import './App.css'
-import { MenuList, RouteList } from './config'
+import { GeneralList } from './config'
+import RouteList from './config/routers'
 import { Footer } from './components'
 import Title from './components/appBars/title'
 
@@ -9,10 +10,12 @@ function App() {
     <div className="App">
       <header className="App-header">
         <Title />
-        <GiMaterialsScience className="App-logo" />
         <nav>
-          <MenuList />
+          <GeneralList />
         </nav>
+        <div style={{ alignSelf: 'flex-end' }}>
+          <GiMaterialsScience className="App-logo" />
+        </div>
       </header>
       <RouteList />
       <Footer />

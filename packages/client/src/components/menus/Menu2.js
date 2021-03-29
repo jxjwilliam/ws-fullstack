@@ -1,6 +1,7 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { fade, makeStyles } from '@material-ui/core/styles'
-import { Menu, MenuItem, Fade, Link, Button } from '@material-ui/core'
+import { Menu, MenuItem, Fade, Link as MuiLink, Button } from '@material-ui/core'
 import { Menu as MenuIcon } from '@material-ui/icons'
 
 // 09-service/index: menus
@@ -34,14 +35,14 @@ export default function ({ routers = [], base, title, Icon = MenuIcon }) {
   }
 
   const renderMenu = (
-    <Menu anchorEl={anchorEl} keepMounted open={open} onClose={handleClose} TransitionComponent={Fade}>
+    <Menu id="fade-menu" anchorEl={anchorEl} keepMounted open={open} onClose={handleClose} TransitionComponent={Fade}>
       {routers.map(({ icon: CompIcon = MenuIcon, path }) => (
-        <Link href={`${base}/${path}`} key={path} className={classes.link}>
+        <MuiLink component={Link} to={`${base}/${path}`} key={path} className={classes.link}>
           <MenuItem onClick={handleClose} className={classes.icon}>
             {CompIcon ? <CompIcon fontSize="small" /> : null}
             {path}
           </MenuItem>
-        </Link>
+        </MuiLink>
       ))}
     </Menu>
   )

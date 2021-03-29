@@ -1,7 +1,11 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import IconButton from '@material-ui/core/IconButton'
+import Button from '@material-ui/core/Button'
+import { Link as MuiLink } from '@material-ui/core'
 import {
-  // OfflineBolt,  VerifiedUser,
+  OfflineBolt,
+  VerifiedUser,
   Business,
   BusinessCenter,
   AttachMoney,
@@ -11,6 +15,8 @@ import {
   Home as AppHome,
   LockOpen,
   AccountBox,
+  Alarm,
+  Subject,
 } from '@material-ui/icons'
 
 export const menuList = [
@@ -20,18 +26,23 @@ export const menuList = [
     icon: AppHome,
   },
   {
+    title: '客户信息',
+    path: '/客户信息',
+    icon: SupervisorAccount,
+  },
+  {
     title: 'Info',
     path: '/info',
     icon: AccountBox,
   },
   {
-    title: 'Services',
-    path: '/services',
+    title: 'Hooks',
+    path: '/hooks',
     icon: Business,
   },
   {
     title: 'Playground',
-    path: 'playground',
+    path: '/playground',
     icon: BusinessCenter,
   },
   {
@@ -47,7 +58,7 @@ export const menuList = [
   {
     title: 'Docs',
     path: '/docs',
-    icon: SupervisorAccount,
+    icon: Subject,
   },
   {
     title: 'Logout',
@@ -56,11 +67,41 @@ export const menuList = [
   },
 ]
 
-export default function () {
-  return menuList.map(({ title, path, icon: NavIcon }) => (
-    <Link to={path} key={title}>
-      <NavIcon />
+export const GeneralList = () =>
+  [
+    {
+      title: 'About',
+      path: '/about',
+      icon: OfflineBolt,
+    },
+    {
+      title: 'Contact',
+      path: '/contact',
+      icon: Store,
+    },
+    {
+      title: 'Info',
+      path: '/info',
+      icon: VerifiedUser,
+    },
+    {
+      title: 'Login',
+      path: '/login',
+      icon: Alarm,
+    },
+  ].map(({ title, path, icon: MenuIcon }) => (
+    <MuiLink component={Link} to={path} key={title} color="inherit" variant="subtitle1">
+      <IconButton color="inherit" aria-label="title">
+        <MenuIcon />
+      </IconButton>
       {title}
-    </Link>
+    </MuiLink>
+  ))
+
+export default function MenuList() {
+  return menuList.map(({ title, path, icon: NavIcon }) => (
+    <Button component={Link} to={path} key={title} variant="contained" color="secondary" startIcon={<NavIcon />}>
+      {title}
+    </Button>
   ))
 }

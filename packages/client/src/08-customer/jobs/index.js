@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { fetching } from '../../config/fetch'
 import Jobs from './jobs'
 
+// ms-redis
 const JOB = {
   all: 'http://localhost:8076/api/jobs/github',
   custom: 'http://localhost:8076/api/jobs/github_custom',

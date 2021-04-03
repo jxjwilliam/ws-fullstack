@@ -1,0 +1,1 @@
+server-side: ms-redis

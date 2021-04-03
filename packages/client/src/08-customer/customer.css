@@ -1,0 +1,77 @@
+.wrapper {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: space-between;
+  background-color: rgb(245, 242, 225);
+  padding-left: 2rem;
+}
+
+.container {
+  padding-bottom: 1rem;
+  background-color: seashell;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.container .ul {
+  text-align: start;
+  margin-left: 3rem;
+  line-height: 1.5rem;
+}
+
+.wrapper ul,
+.container ul {
+  margin: 0;
+}
+
+.wrapper ul li,
+.container ul li {
+  list-style: none;
+  line-height: 2;
+}
+
+.wrapper ul li a,
+.container ul li a {
+  text-decoration: none;
+}
+
+.wrapper ul li a:hover,
+.container ul il a:hover {
+  text-decoration: none;
+}
+
+.wrapper button[type='button'],
+.container button[type='button'] {
+  background-color: rebeccapurple;
+  color: white;
+  padding: 1.5rem;
+  margin: 1rem;
+}
+
+.clockdown {
+  font-family: sans-serif;
+  color: #fff;
+  display: inline-block;
+  font-weight: 100;
+  text-align: center;
+  font-size: 30px;
+}
+
+.clockdown > div {
+  padding: 10px;
+  border-radius: 3px;
+  background: #00bf96;
+  display: inline-block;
+}
+
+.clockdown div > span {
+  padding: 15px;
+  border-radius: 3px;
+  background: #00816a;
+  display: inline-block;
+}
+
+.smalltext {
+  padding-top: 5px;
+  font-size: 16px;
+}

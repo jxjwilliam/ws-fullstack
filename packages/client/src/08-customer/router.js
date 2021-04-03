@@ -31,6 +31,7 @@ import {
 } from '@material-ui/icons'
 import { Todo, Algolia1, Algolia2, NewsApi, Clock, Counter } from './ms-frontend-framework'
 import { C1_1 } from './containers'
+import { NoCors, Local, Delegate } from './fruits'
 import { GitAll, GitCustom } from './jobs'
 
 const base = 'Customer'
@@ -39,15 +40,15 @@ const navList = {
   base: 'Customer',
   navs: [
     {
-      path: '客户基本信息',
+      path: 'ms-frontend-fullstack',
       icon: Group,
     },
     {
-      path: '财务信息',
+      path: 'Fruits',
       icon: MonetizationOn,
     },
     {
-      path: '评级限额信息',
+      path: 'Git Jobs',
       icon: RateReview,
     },
     {
@@ -71,7 +72,7 @@ const navList = {
 
 const mainList = [
   {
-    nav: '客户基本信息',
+    nav: 'ms-frontend-fullstack',
     main: [
       {
         path: 'algolia1',
@@ -128,22 +129,42 @@ const mainList = [
     ],
   },
   {
-    nav: '财务信息',
+    nav: 'Fruits',
     main: [
       {
-        path: '主要财务资料',
+        path: 'local',
+        title: 'Local',
         icon: ListAlt,
-        component: GitAll,
+        component: Local,
+      },
+      {
+        path: 'delegate',
+        title: 'Delegate',
+        icon: ListAlt,
+        component: Delegate,
+      },
+      {
+        path: 'no-cors',
+        title: 'No Cors',
+        icon: ListAlt,
+        component: NoCors,
       },
     ],
   },
   {
-    nav: '评级限额信息',
+    nav: 'Git Jobs',
     main: [
       {
-        path: '客户评级与限额',
+        path: 'gitcustom',
+        title: 'git custom',
         icon: AccountCircle,
         component: GitCustom,
+      },
+      {
+        path: 'gitall',
+        title: 'git all',
+        icon: ListAlt,
+        component: GitAll,
       },
     ],
   },

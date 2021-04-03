@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import './customer.css'
 import getPageLayout from '../components/layout/logic'
 import { navList, mainList } from './router'
 

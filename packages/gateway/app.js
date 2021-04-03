@@ -7,6 +7,7 @@ const favicon = require('serve-favicon')
 const cors = require('cors')
 const helmet = require('helmet')
 const expressJwt = require('express-jwt')
+const fetch = require('node-fetch')
 
 require('dotenv').config()
 
@@ -30,6 +31,17 @@ app.get('/', (req, res) => {
 app.post('/api/v1/login', (req, res) => res.json({ token: '12345' }))
 app.post('/api/v1/register', (req, res) => res.status(200).json({ message: 'success' }))
 app.get('/api/v1/logout', (req, res) => res.json({ token: null, message: 'success process' }))
+app.get('/api/fruits/:name', (req, res) => {
+  const keyword = req.params.name || 'all'
+  const searchUrl = `https://fruityvice.com/api/fruit/${keyword}`
+  fetch(searchUrl)
+    .then(ret => ret.json())
+    .then(data => res.json(data))
+    .catch(error => {
+      console.error(error)
+      res.json(error)
+    })
+})
 
 const apiProxy = httpProxy.createProxyServer()
 const { MS_AUTH, MS_DBMS, MS_NOSQL, MS_REDIS } = process.env

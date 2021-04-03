@@ -10,13 +10,12 @@ const github_custom = process.env.REDIS_GITHUB_CUSTOM
 
 const app = express()
 const client = redis.createClient()
-const getAsync = promisify(client.get).bind(client);
+const getAsync = promisify(client.get).bind(client)
 
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*')
   next()
 })
-
 
 /**
  * github: https://jobs.github.com/positions

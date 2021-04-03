@@ -42,6 +42,16 @@ app.get('/api/fruits/:name', (req, res) => {
       res.json(error)
     })
 })
+app.use('/api/github/:search', (req, res) => {
+  const { search } = req.params
+  fetch(`https://jobs.github.com/positions.json?search=${search}`)
+    .then(result => result.json())
+    .then(data => res.json(data))
+    .catch(error => {
+      res.send(error.message)
+      throw new Error(error)
+    })
+})
 
 const apiProxy = httpProxy.createProxyServer()
 const { MS_AUTH, MS_DBMS, MS_NOSQL, MS_REDIS } = process.env

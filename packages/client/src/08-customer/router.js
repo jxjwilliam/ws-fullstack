@@ -30,9 +30,10 @@ import {
   BarChart,
 } from '@material-ui/icons'
 import { Todo, Algolia1, Algolia2, NewsApi, Clock, Counter } from './ms-frontend-framework'
-import { C1_1 } from './containers'
+import { Github, Walmart } from './ms-fullstack-framework/containers'
 import { NoCors, Local, Delegate } from './fruits'
 import { GitAll, GitCustom } from './jobs'
+import { C1_1 } from './containers'
 
 const base = 'Customer'
 
@@ -40,20 +41,20 @@ const navList = {
   base: 'Customer',
   navs: [
     {
-      path: 'ms-frontend-fullstack',
+      path: 'ms-frontend-framework',
       icon: Group,
     },
     {
-      path: 'Fruits',
-      icon: MonetizationOn,
+      path: 'ms-fulllstack-framework',
+      icon: OfflineBolt,
     },
     {
       path: 'Git Jobs',
       icon: RateReview,
     },
     {
-      path: '风险信息',
-      icon: OfflineBolt,
+      path: 'Fruits',
+      icon: MonetizationOn,
     },
     {
       path: '关联信息',
@@ -72,7 +73,7 @@ const navList = {
 
 const mainList = [
   {
-    nav: 'ms-frontend-fullstack',
+    nav: 'ms-frontend-framework',
     main: [
       {
         path: 'algolia1',
@@ -169,17 +170,19 @@ const mainList = [
     ],
   },
   {
-    nav: '风险信息',
+    nav: 'ms-fulllstack-framework',
     main: [
       {
-        path: '预警信息',
-        icon: Warning,
-        component: C1_1,
+        path: 'walmart',
+        titlle: 'Walmart',
+        icon: CreditCard,
+        component: Walmart,
       },
       {
-        path: '征信关注及不良',
-        icon: CreditCard,
-        // component: C1_1,
+        path: 'github',
+        title: 'Github',
+        icon: Warning,
+        component: Github,
       },
     ],
   },
@@ -189,12 +192,12 @@ const mainList = [
       {
         path: '关联关系信息',
         icon: Toc,
-        // component: C1_1,
+        component: C1_1,
       },
       {
         path: '上下游企业',
         icon: LocationCity,
-        // component: C1_1,
+        component: C1_1,
       },
     ],
   },

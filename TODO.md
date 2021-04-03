@@ -28,14 +28,17 @@
 - grid.js
 - table.js
 
-
 ### ShortCodes
 
-- 
-rfc, rfce, rfcp
-rafcp,rafc,rafce
-rmc, rmcp,
-cmmb
-desc, test, tit,
-stest
-hoc
+    rfc, rfce, rfcp
+    rafcp,rafc,rafce
+    rmc, rmcp,
+    cmmb
+    desc, test, tit,
+    stest
+    hoc
+
+### 0402
+
+- migrate `ms-frontend-framework`, `ms-fullstack-framework`, `fruits-monorepo`, `cra` etc into `08-customer`.
+- TODO: `basic`, `graphql`

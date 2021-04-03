@@ -26,7 +26,7 @@ export const menuList = [
     icon: AppHome,
   },
   {
-    title: '客户信息',
+    title: 'Customer',
     path: '/客户信息',
     icon: SupervisorAccount,
   },

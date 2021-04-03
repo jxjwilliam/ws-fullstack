@@ -29,13 +29,14 @@ import {
   Warning,
   BarChart,
 } from '@material-ui/icons'
-import { C1_1, C4_1 } from './containers'
+import { Todo, Algolia1, Algolia2, NewsApi, Clock, Counter } from './ms-frontend-framework'
+import { C1_1 } from './containers'
 import { GitAll, GitCustom } from './jobs'
 
-const base = '客户信息'
+const base = 'Customer'
 
 const navList = {
-  base: '客户信息',
+  base: 'Customer',
   navs: [
     {
       path: '客户基本信息',
@@ -73,31 +74,39 @@ const mainList = [
     nav: '客户基本信息',
     main: [
       {
-        path: '基础信息',
-        icon: Message,
-        component: C1_1,
-      },
-      {
-        path: '管理层信息',
-        icon: MailOutline,
-        component: C1_1,
-      },
-      {
-        path: '自然人实际控制人',
-        icon: Person,
-        component: C1_1,
-      },
-      {
-        path: '非自然人实际控制人',
-        icon: PermIdentity,
-        component: C1_1,
-      },
-      {
-        path: '主要财务资料',
+        path: 'algolia1',
+        title: 'Algolia1',
         icon: BarChart,
+        component: Algolia1,
       },
       {
-        path: '客户评级与限额',
+        path: 'algolia2',
+        title: 'Algolia2',
+        icon: Message,
+        component: Algolia2,
+      },
+      {
+        path: 'newsapi',
+        title: 'News Api',
+        icon: MailOutline,
+        component: NewsApi,
+      },
+      {
+        path: 'todo',
+        title: 'Todo',
+        icon: Person,
+        component: Todo,
+      },
+      {
+        path: 'clock',
+        title: 'Clock',
+        icon: PermIdentity,
+        component: Clock,
+      },
+      {
+        path: 'count',
+        title: 'Counter',
+        component: Counter,
         icon: BarChart,
       },
       {

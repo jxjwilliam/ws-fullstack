@@ -18,6 +18,8 @@ const isEmpty = prop =>
   (prop.hasOwnProperty('length') && prop.length === 0) ||
   (prop.constructor === Object && Object.keys(prop).length === 0)
 
+const isObject = obj => !!obj && typeof obj === 'object' && obj.constructor === Object
+
 function defer(callback, ms = 2000) {
   return new Promise((resolve, reject) => {
     try {
@@ -31,4 +33,4 @@ function defer(callback, ms = 2000) {
   })
 }
 
-export { showGroup, capitalize, isEmpty, defer }
+export { showGroup, capitalize, isEmpty, isObject, defer }

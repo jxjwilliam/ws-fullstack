@@ -1,30 +1,24 @@
+/* frin ms-frontend-framrwork/app.css */
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  pointer-events: none;
-  height: 10vmin;
-  fill: gold;
-  width: 80px;
-  height: 80px;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+  /* text-align: center; */
+  width: 900px;
+  margin: 0 auto;
 }
 
 .App-header {
   background-color: #282c34;
   min-height: 10vh;
   display: flex;
-  flex-direction: row;
-  align-items: center;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
   font-size: calc(10px + 2vmin);
   color: white;
+}
+
+.App-nav {
+  font-size: medium;
+  color: whitesmoke;
 }
 
 .App-link {
@@ -38,4 +32,78 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.wrapper {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: space-between;
+  background-color: rgb(245, 242, 225);
+  padding-left: 2rem;
+}
+
+.container {
+  padding-bottom: 1rem;
+  background-color: seashell;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.container .ul {
+  text-align: start;
+  margin-left: 3rem;
+  line-height: 1.5rem;
+}
+
+ul {
+  margin: 0;
+}
+
+ul li {
+  list-style: none;
+  line-height: 2;
+}
+
+ul li a {
+  text-decoration: none;
+}
+
+ul li a:hover {
+  text-decoration: none;
+}
+
+button[type='button'] {
+  background-color: rebeccapurple;
+  color: white;
+  padding: 1.5rem;
+  /* border-radius: 90%; */
+  margin: 1rem;
+}
+
+.clockdown {
+  font-family: sans-serif;
+  color: #fff;
+  display: inline-block;
+  font-weight: 100;
+  text-align: center;
+  font-size: 30px;
+}
+
+.clockdown > div {
+  padding: 10px;
+  border-radius: 3px;
+  background: #00bf96;
+  display: inline-block;
+}
+
+.clockdown div > span {
+  padding: 15px;
+  border-radius: 3px;
+  background: #00816a;
+  display: inline-block;
+}
+
+.smalltext {
+  padding-top: 5px;
+  font-size: 16px;
 }
